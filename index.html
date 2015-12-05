@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="madLibApp">
+<head>
+	<title>Madlib with Angular</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="madLibCtrl as madLib">
+	
+	<div>
+		<h1>{{madLib.title}}</h1>
+	</div>
+	
+	<div>
+		<p>{{madLib.instructions}}</p>
+	</div>
+
+	<div class="place-text">
+
+		Verbs: <input ng-model="madLib.verbString" type="text" name="verbs" placeholder="Enter 4 verbs" id="verbs" class="rows"><br/>
+		Nouns: <input ng-model="madLib.nounString" type="text" name="nouns" placeholder="Enter 4 nouns" id="nouns" class="rows"><br/>
+		Adverbs: <input ng-model="madLib.adverbString" type="text" name="adverbs" placeholder="Enter 4 adverbs" id="adverbs" class="rows"><br/>
+		Adjectives: <input ng-model="madLib.adjectiveString" type="text" name="adject" placeholder="Enter 4 adjectives" id="adjectives" class="rows"><br/>
+
+	</div>
+	
+	<div class="options">
+		
+		<input ng-model="madLib.StoryBtn" type="radio" name="stories" value="christmas" checked>Christmas Tree
+		<input ng-model="madLib.StoryBtn" type="radio" name="stories" value="shopping">Shopping
+
+	</div>
+
+	<div>
+		
+		<button ng-click="madLib.submitBtn()" class=" submitBtn" >Submit</button>
+
+	</div>
+
+	<div ng-show="madLib.submitted">
+		<div ng-show="madLib.christmasStorybtn">{{madLib.christmasStory}}</div>
+		<div ng-show="madLib.shoppingStorybtn">{{madLib.shoppingStory}}</div>
+	</div>
+
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular-route.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="arrLength.js"></script>
+	<script type="text/javascript" src="madLibLists.js"></script>
+</body>
+</html>
